@@ -1,0 +1,16 @@
+{
+  "name": "newb0t",
+  "version": "1.0.0",
+  "description": "simple bot",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John King Kong",
+  "license": "ISC",
+  "dependencies": {
+    "16": "^0.0.2",
+    "discord.js": "^13.2.0",
+    "n": "^8.0.0"
+  }
+}
