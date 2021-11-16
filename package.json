@@ -10,7 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "16": "^0.0.2",
+    "@discordjs/voice": "^0.7.5",
     "discord.js": "^13.2.0",
+    "libsodium-wrappers": "^0.7.9",
     "n": "^8.0.0"
   }
 }

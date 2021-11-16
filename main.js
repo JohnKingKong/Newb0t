@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 const { Client, Intents } = require('discord.js');
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES] });
 
 const prefix = '!';
 
@@ -32,12 +32,16 @@ client.on('messageCreate', message =>{
 
 	if (command === 'ping')
 		client.commands.get('ping').execute(message, args);
-	if (command === 'mod')
+	else if (command === 'mod')
 		client.commands.get('mod').execute(message, args);
-	if (command === 'clear')
+	else if (command === 'clear')
 		client.commands.get('clear').execute(message, args);
-	if (command === 'help')
+	else if (command === 'help')
 		client.commands.get('help').execute(message, args);
+	else if (command === 'play') 
+		client.commands.get('play').execute(message, args);
+
+
 });
 
 
