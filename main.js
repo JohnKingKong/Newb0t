@@ -34,8 +34,10 @@ client.on('messageCreate', message =>{
 		client.commands.get('ping').execute(message, args);
 	if (command === 'mod')
 		client.commands.get('mod').execute(message, args);
-	if (command === 'roles')
-		client.commands.get('roles').execute(message, args);
+	if (command === 'clear')
+		client.commands.get('clear').execute(message, args);
+	if (command === 'help')
+		client.commands.get('help').execute(message, args);
 });
 
 
