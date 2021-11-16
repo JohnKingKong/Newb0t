@@ -40,7 +40,7 @@ const modsembed = new Discord.MessageEmbed()
 const musicembed = new Discord.MessageEmbed()
 						.setTitle('Music commands')
 						.setAuthor('Newb0t')
-						.setColor('3ACE33').channel.send({ embeds: [utilsembed] });
+						.setColor('3ACE33')
 						.setFooter('Newb0t FTW!!!')
 						.setTimestamp()
 						.addFields(

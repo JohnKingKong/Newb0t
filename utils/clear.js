@@ -24,13 +24,12 @@ async function execute(message,args){
 		mess = Number(args[0]);
 		mess += 1;
 		embed.addFields({name: 'Deleting', value: `${args[0]} messages`})
-		//message.reply({embeds: [embed] });
 		await message.channel.messages.fetch({limit: mess}).then(messages =>{
 			console.log(messages) 
 			message.channel.bulkDelete(messages).catch()
 		})	
 		message.channel.send({ embeds: [embed] }).then(msg => {
-		setTimeout(() => msg.delete(),3000);}).catch(console.log("ohoh"));
+		setTimeout(() => msg.delete(),3000);}).catch();
 	}
 	
 }
