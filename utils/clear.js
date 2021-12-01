@@ -1,8 +1,6 @@
 const Discord = require('discord.js');
 
-
-
-async function execute(message,args){
+async function execute(client, message, args, Discord){
 	embed = new Discord.MessageEmbed()
 					.setFooter("Newb0t FTW!!!!")
 					.setAuthor('Newb0t')
@@ -16,10 +14,20 @@ async function execute(message,args){
 		embed.addFields({name: 'Oh Oh!!', value: "You can't delete less than a message... Come on man!"})
 		return message.reply({ embeds: [embed] });
 	}
-	if (args[0] >= 100){
+	if (args[0] > 100){
 		embed.addFields({name: 'Oh Oh!!', value: "You can't delete more than a hundred messages..."})
 		return message.reply({ embeds: [embed] });
 	}
+	if (args[0] == 100){
+		embed.addFields({name:'Deleting', value:`${100} messages`})
+		await message.channel.messages.fetch({limit: 100}).then(messages =>{
+			console.log(messages) 
+			message.channel.bulkDelete(messages).catch()
+		})	
+		message.channel.send({ embeds: [embed] }).then(msg => {
+		setTimeout(() => msg.delete(),3000);}).catch();
+	}
+		
 	else {
 		mess = Number(args[0]);
 		mess += 1;

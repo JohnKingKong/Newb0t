@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-function execute (message, args){
+function execute (client, message, args, Discord){
 	var txt;
 	embed = new Discord.MessageEmbed()
 					.setFooter("Let's Go Mod team!!!")

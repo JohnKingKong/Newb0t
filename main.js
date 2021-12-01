@@ -1,48 +1,15 @@
 const Discord = require('discord.js');
-
+require('dotenv').config();
 const { Client, Intents } = require('discord.js');
-
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES] });
-
-const prefix = '!';
-
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.DIRECT_MESSAGE_REACTIONS],
+	partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 const fs = require('fs');
+const memberCounter = require('./counters/member-counter');
 
+client.events - new Discord.Collection();
 client.commands = new Discord.Collection();
+['command_handler', 'event_handler'].forEach(handler => {
+	require(`./handlers/${handler}`)(client, Discord);
+ })
 
-const commandFiles = fs.readdirSync('./utils/').filter(file => file.endsWith('.js'));
-for (const file of commandFiles)
-{
-	const command = require(`./utils/${file}`);
-
-	client.commands.set(command.name, command);
-}
-
-client.once('ready', () =>
-{
-	console.log('Newb0t is online');
-});
-
-client.on('messageCreate', message =>{
-	if (!message.content.startsWith(prefix) || message.author.bot)
-		return;
-
-	const args = message.content.slice(prefix.length).split(/ +/);
-	const command = args.shift().toLowerCase();
-
-	if (command === 'ping')
-		client.commands.get('ping').execute(message, args);
-	else if (command === 'mod')
-		client.commands.get('mod').execute(message, args);
-	else if (command === 'clear')
-		client.commands.get('clear').execute(message, args);
-	else if (command === 'help')
-		client.commands.get('help').execute(message, args);
-	else if (command === 'play') 
-		client.commands.get('play').execute(message, args);
-
-
-});
-
-
-client.login('OTAzNjg3ODIzNzg0MzEyODMy.YXwm3g.8VrweEkHg5Hwu8oRxqphrNNhRSc');
+client.login(process.env.DISCORD_TOKEN);

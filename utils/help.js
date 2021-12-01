@@ -87,7 +87,7 @@ const otherembed = new Discord.MessageEmbed()
 						{ name: 'Soon', value:'any other commands like quizzes, info on the bot, version, etc'}
 					)
 
-function execute(message, args){
+function execute(client, message, args, Discord){
 
 	message.channel.send({ embeds: [embed] });
 
@@ -124,6 +124,7 @@ function execute(message, args){
 							else if (!message.author.bot) {
 								message.channel.send("Please enter a valid command!");
 							}
+
 						}
 	collector.on('collect', txt);
 }
