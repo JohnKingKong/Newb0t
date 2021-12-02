@@ -13,7 +13,7 @@ const client = new Client({
 	partials: ["MESSAGE", "CHANNEL", "REACTION"],
 });
 const fs = require("fs");
-const memberCounter = require("./counters/member-counter");
+//const memberCounter = require("./counters/member-counter");
 
 client.events = new Discord.Collection();
 client.commands = new Discord.Collection();

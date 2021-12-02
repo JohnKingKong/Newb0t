@@ -1,4 +1,4 @@
-module.exports = (client, Discord, memberCounter) => {
+module.exports = (client, Discord) => {
 	console.log("Newb0t is ready!");
 	const guild = client.guilds.cache.get("836985572991434823");
 
