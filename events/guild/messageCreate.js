@@ -6,12 +6,9 @@ module.exports = (client, Discord, message) => {
 
 	const args = message.content.slice(prefix.length).split(/ +/);
 	const cmd = args.shift().toLowerCase();
-
 	const command =
 		client.commands.get(cmd) ||
 		client.commands.find((a) => a.aliases && a.aliases.includes(cmd));
-
-	//if (command) command.execute(client, message, args, Discord);
 
 	try {
 		command.execute(client, message, args, cmd, Discord);

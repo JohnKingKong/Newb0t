@@ -1,4 +1,4 @@
-module.exports = {
+/*module.exports = {
 	name: "reactionrole",
 	desription: "reaction roles baby",
 	async execute(client, message, args, Discord) {
@@ -29,3 +29,4 @@ module.exports = {
 		messageEmbed.react("🔐");
 	},
 };
+*/
